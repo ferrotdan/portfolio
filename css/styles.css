@@ -251,9 +251,20 @@ main {
   margin-bottom: 20px;
 }
 
+/* UPDATED: thicker, darker divider line under each resume section header */
 .resume-section h2 {
   font-size: 1.1rem;
   margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #111827;
+}
+
+/* OPTIONAL: if your resume page uses <hr>, this makes it bold and consistent */
+.resume-section hr,
+hr {
+  border: none;
+  border-top: 3px solid #111827;
+  margin: 12px 0 16px;
 }
 
 .resume-list {
