@@ -1,80 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me | Dan Ferro</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Dan Ferro</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">Dan Ferro</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="brand-dot"></span>
+          <span>Dan Ferro</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-section">
+    <section class="section">
       <div class="container">
-        <div class="page-header">
-          <h1>About Me</h1>
-          <p>A quick look at who I am, what I’m studying, and what I’m interested in.</p>
-        </div>
+        <div class="kicker">About</div>
+        <h1>Simple, clean development with strong structure.</h1>
+        <p>
+          I’m Dan — a Web Software Development student focused on building websites that are easy to navigate,
+          easy to read, and visually consistent. I care a lot about layout, spacing, and clarity.
+        </p>
 
-        <div class="about-layout">
+        <div class="grid" style="margin-top: 18px;">
+          <div class="col-6">
+            <div class="card">
+              <div class="card-pad">
+                <h2>What I’m doing now</h2>
+                <ul class="clean-list">
+                  <li>Building multi-page sites with clean HTML structure and responsive CSS</li>
+                  <li>Shipping coursework and projects that demonstrate real-world usability</li>
+                  <li>Improving UI/UX fundamentals (hierarchy, spacing, navigation, consistency)</li>
+                </ul>
 
-          <!-- LEFT SIDE TEXT -->
-          <div class="about-text">
-            <p>
-              I’m a web software development student who enjoys building websites
-              that are easy to use and easy to understand. I like focusing on the basics:
-              solid HTML, responsive CSS, and good structure.
-            </p>
-            <p>
-              Right now I’m working on projects for school that help me practice layout,
-              navigation, and organizing content in a way that feels natural for the user.
-            </p>
-            <p>
-              Outside of coding, I’m interested in film, gaming, fitness, and helping friends
-              with tech and media projects.
-            </p>
-
-            <h2 style="margin-top: 18px; font-size: 1.05rem;">Skills & Tools</h2>
-            <ul class="badge-list">
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>Responsive Design</li>
-              <li>Basic JavaScript</li>
-              <li>WordPress</li>
-              <li>Git & GitHub</li>
-            </ul>
+                <div class="btn-row">
+                  <a class="btn primary" href="projects.html">View Projects</a>
+                  <a class="btn" href="contact.html">Contact Me</a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- RIGHT SIDE PROFILE CARD -->
-          <aside class="profile-card">
-            <img src="images/me.jpg" alt="My profile photo">
-            <h2>Web Dev Student</h2>
-            <p>Blackhawk Technical College</p>
-          </aside>
+          <div class="col-6">
+            <div class="card">
+              <div class="card-pad profile">
+                <div class="avatar">
+                  <img src="images/profile.jpg" alt="Portrait of Dan Ferro">
+                </div>
+
+                <div class="meta">
+                  <span class="chip">Based in Wisconsin</span>
+                  <span class="chip">Student Developer</span>
+                  <span class="chip">UI/UX minded</span>
+                </div>
+
+                <p style="margin-top: 10px;">
+                  <strong style="color: var(--text);">Seeking:</strong> internships or entry-level roles in web development
+                  where I can contribute and grow fast.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="card">
+              <div class="card-pad">
+                <h2>Skills & tools</h2>
+                <div class="grid" style="margin-top: 10px;">
+                  <div class="col-4">
+                    <h3>Front-end</h3>
+                    <div class="stack">
+                      <span class="chip">HTML</span>
+                      <span class="chip">CSS</span>
+                      <span class="chip">Responsive Layout</span>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <h3>CMS</h3>
+                    <div class="stack">
+                      <span class="chip">WordPress</span>
+                      <span class="chip">Content Structure</span>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <h3>Workflow</h3>
+                    <div class="stack">
+                      <span class="chip">Git</span>
+                      <span class="chip">GitHub</span>
+                      <span class="chip">Project Organization</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p style="margin-top: 14px;">
+                  I’m not trying to look “flashy.” I’m trying to ship clean work that makes sense and feels solid.
+                </p>
+              </div>
+            </div>
+          </div>
 
         </div>
+
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      © 2025 · Dan Ferro
+      <div>© 2026 Dan Ferro • <a href="projects.html" style="text-decoration: underline;">Projects</a> • <a href="contact.html" style="text-decoration: underline;">Contact</a></div>
     </div>
   </footer>
-
 </body>
 </html>
