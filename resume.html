@@ -1,89 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume | Dan Ferro</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">Dan Ferro</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html" class="active">Resume</a>
-        <a href="contact.html">Contact</a>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="brand-dot"></span>
+          <span>Dan Ferro</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-section">
+    <section class="section">
       <div class="container">
-        <div class="page-header">
-          <h1>Resume</h1>
-          <p>A summary of my experience, education, and technical skills.</p>
-        </div>
+        <div class="kicker">Resume</div>
+        <h1>Resume + quick summary</h1>
+        <p>
+          Keep this page short. Recruiters want the PDF fast.
+        </p>
 
-        <div class="resume-download">
-          <a href="resume/resume.pdf" class="btn btn-outline" download>Download PDF Resume</a>
-        </div>
+        <div class="grid" style="margin-top: 18px;">
+          <div class="col-6">
+            <div class="card">
+              <div class="card-pad">
+                <h2>Download</h2>
+                <p>
+                  Put your PDF in the <strong style="color:var(--text)">resume/</strong> folder and link it here.
+                </p>
 
-        <div class="resume-section">
-          <h2>Experience</h2>
-          <ul class="resume-list">
-            <li>
-              <strong>Student Web Projects</strong> – Blackhawk Technical College<br>
-              Building small web projects using HTML, CSS, and basic JavaScript.
-            </li>
-            <li>
-              <strong>Tech & Customer Support (example)</strong><br>
-              Assisting users with basic hardware and software issues.
-            </li>
-          </ul>
-        </div>
+                <!-- Change the file name if yours is different -->
+                <div class="btn-row">
+                  <a class="btn primary" href="resume/Dan-Ferro-Resume.pdf" target="_blank" rel="noopener">Open PDF</a>
+                  <a class="btn" href="contact.html">Contact</a>
+                </div>
 
-        <div class="resume-section">
-          <h2>Education</h2>
-          <ul class="resume-list">
-            <li>
-              <strong>Blackhawk Technical College</strong><br>
-              Web Software Development · In Progress
-            </li>
-          </ul>
-        </div>
+                <p style="margin-top: 10px;">
+                  If your PDF has a different name, update the link: <code style="color:var(--text)">resume/yourfile.pdf</code>
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <div class="resume-section">
-          <h2>Technical Skills</h2>
-          <ul class="resume-list">
-            <li>HTML5, CSS3, Responsive Design</li>
-            <li>Basic JavaScript</li>
-            <li>WordPress & basic SEO</li>
-            <li>Git & GitHub</li>
-          </ul>
-        </div>
+          <div class="col-6">
+            <div class="card">
+              <div class="card-pad">
+                <h2>Highlights</h2>
+                <ul class="clean-list">
+                  <li>Web Software Development student (BTC)</li>
+                  <li>Projects in HTML/CSS + WordPress</li>
+                  <li>Strong focus on clean UI, spacing, and navigation</li>
+                </ul>
+                <div class="btn-row">
+                  <a class="btn" href="projects.html">View Projects</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <div class="resume-section">
-          <h2>Soft Skills</h2>
-          <ul class="resume-list">
-            <li>Problem solving</li>
-            <li>Communication</li>
-            <li>Team collaboration</li>
-          </ul>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-pad">
+                <h2>Want this page to match your resume exactly?</h2>
+                <p>
+                  Paste your resume text here (or upload the PDF) and I’ll format it into a clean, readable web version.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      © 2025 · Dan Ferro
+      <div>© 2026 Dan Ferro</div>
     </div>
   </footer>
-
 </body>
 </html>
