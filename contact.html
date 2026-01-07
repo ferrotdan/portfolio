@@ -32,7 +32,7 @@
         <div class="kicker">Contact</div>
         <h1>Contact</h1>
         <p>
-          Email is the best way to reach me. Use the button below or draft a quick message.
+          Email is the best way to reach me. Use the button below or send a quick message.
         </p>
 
         <div class="grid" style="margin-top: 18px;">
@@ -41,17 +41,25 @@
               <div class="card-pad">
                 <h2>Email</h2>
                 <p>
-                  For opportunities, questions, or project inquiries, feel free to email me directly.
+                  For opportunities, questions, or project inquiries, feel free to contact me directly.
                 </p>
+
                 <div class="btn-row" style="flex-wrap: wrap; gap: 10px;">
                   <a class="btn primary" id="emailBtn" href="mailto:ferro.t.dan@gmail.com">Email me</a>
-
+                  <a class="btn" id="gmailBtn" target="_blank" rel="noopener"
+                     href="https://mail.google.com/mail/?view=cm&fs=1&to=ferro.t.dan@gmail.com">Open in Gmail</a>
                   <button class="btn" type="button" id="copyEmailBtn">Copy email</button>
                 </div>
 
                 <p style="margin-top: 10px;">
                   <small>Email:</small>
                   <code id="emailText" style="color: var(--text);">ferro.t.dan@gmail.com</code>
+                </p>
+
+                <p style="margin-top: 10px;">
+                  <small style="color: var(--muted);">
+                    If the button doesn’t open your mail app, use “Open in Gmail” or copy the address above.
+                  </small>
                 </p>
               </div>
             </div>
@@ -61,18 +69,29 @@
               <div class="card-pad">
                 <h2>Quick message</h2>
                 <p>
-                  This will open a pre-filled email draft in your default mail app.
+                  Sends a message directly from this page (no mail app required).
                 </p>
-                <div class="form">
-                  <input class="input" id="name" type="text" placeholder="Your name" />
-                  <input class="input" id="fromEmail" type="email" placeholder="Your email" />
-                  <textarea class="input" id="message" placeholder="Your message" rows="5"></textarea>
+
+                <form class="form" id="contactForm" action="https://formspree.io/f/xnjnebgj" method="POST">
+                  <input class="input" name="name" id="name" type="text" placeholder="Your name" required />
+                  <input class="input" name="email" id="fromEmail" type="email" placeholder="Your email" required />
+                  <textarea class="input" name="message" id="message" placeholder="Your message" rows="5" required></textarea>
+                  <input type="hidden" name="_subject" value="Portfolio inquiry" />
 
                   <div class="btn-row" style="margin-top: 10px; flex-wrap: wrap; gap: 10px;">
-                    <a class="btn primary" id="draftBtn" href="#">Open email draft</a>
+                    <button class="btn primary" type="submit" id="sendBtn">Send message</button>
                     <button class="btn" type="button" id="clearBtn">Clear</button>
                   </div>
-                </div>
+
+                  <p id="formStatus" style="margin-top: 10px;"></p>
+
+                  <p style="margin-top: 10px;">
+                    <small style="color: var(--muted);">
+                      Prefer email? Use the “Email me” button on the left.
+                    </small>
+                  </p>
+                </form>
+
               </div>
             </div>
           </div>
@@ -90,10 +109,15 @@
 
   <script>
     const MY_EMAIL = "ferro.t.dan@gmail.com";
+
     const emailBtn = document.getElementById("emailBtn");
+    const gmailBtn = document.getElementById("gmailBtn");
     const emailText = document.getElementById("emailText");
+
     emailBtn.href = `mailto:${MY_EMAIL}`;
+    gmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(MY_EMAIL)}`;
     emailText.textContent = MY_EMAIL;
+
     const copyEmailBtn = document.getElementById("copyEmailBtn");
     copyEmailBtn.addEventListener("click", async () => {
       try {
@@ -104,44 +128,59 @@
         alert("Copy failed — please copy manually: " + MY_EMAIL);
       }
     });
-    const draftBtn = document.getElementById("draftBtn");
+
     const clearBtn = document.getElementById("clearBtn");
-
-    function buildDraftLink() {
-      const name = document.getElementById("name").value.trim();
-      const fromEmail = document.getElementById("fromEmail").value.trim();
-      const msg = document.getElementById("message").value.trim();
-
-      const subject = encodeURIComponent("Portfolio inquiry");
-      const bodyLines = [
-        msg || "",
-        "",
-        "---",
-        name ? `Name: ${name}` : "",
-        fromEmail ? `Email: ${fromEmail}` : ""
-      ].filter(Boolean);
-
-      const body = encodeURIComponent(bodyLines.join("\n"));
-      return `mailto:${MY_EMAIL}?subject=${subject}&body=${body}`;
-    }
-
-    ["name", "fromEmail", "message"].forEach((id) => {
-      document.getElementById(id).addEventListener("input", () => {
-        draftBtn.href = buildDraftLink();
-      });
-    });
-
-    draftBtn.href = buildDraftLink();
     clearBtn.addEventListener("click", () => {
       document.getElementById("name").value = "";
       document.getElementById("fromEmail").value = "";
       document.getElementById("message").value = "";
-      draftBtn.href = buildDraftLink();
+      const status = document.getElementById("formStatus");
+      status.textContent = "";
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+    const sendBtn = document.getElementById("sendBtn");
+
+    contactForm.addEventListener("submit", async (e) => {
+      const action = contactForm.getAttribute("action") || "";
+      if (action.includes("YOUR_FORMSPREE_ID")) {
+        e.preventDefault();
+        formStatus.style.color = "var(--muted)";
+        formStatus.textContent = "Setup needed: replace YOUR_FORMSPREE_ID in the form action (Formspree).";
+        return;
+      }
+
+      e.preventDefault();
+      sendBtn.disabled = true;
+      sendBtn.textContent = "Sending…";
+      formStatus.style.color = "var(--muted)";
+      formStatus.textContent = "";
+
+      try {
+        const formData = new FormData(contactForm);
+        const res = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          formStatus.style.color = "var(--text)";
+          formStatus.textContent = "Message sent — I’ll get back to you soon.";
+          contactForm.reset();
+        } else {
+          formStatus.style.color = "var(--muted)";
+          formStatus.textContent = "Something went wrong. Please use the Email button on the left.";
+        }
+      } catch (err) {
+        formStatus.style.color = "var(--muted)";
+        formStatus.textContent = "Network issue. Please use the Email button on the left.";
+      } finally {
+        sendBtn.disabled = false;
+        sendBtn.textContent = "Send message";
+      }
     });
   </script>
 </body>
 </html>
-
-
-
-
