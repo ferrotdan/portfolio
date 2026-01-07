@@ -36,7 +36,6 @@
         </p>
 
         <div class="grid" style="margin-top: 18px;">
-          <!-- EMAIL CARD -->
           <div class="col-6">
             <div class="card">
               <div class="card-pad">
@@ -47,7 +46,6 @@
                 <div class="btn-row" style="flex-wrap: wrap; gap: 10px;">
                   <a class="btn primary" id="emailBtn" href="mailto:ferro.t.dan@gmail.com">Email me</a>
 
-                  <!-- Copy email (no extra libraries needed) -->
                   <button class="btn" type="button" id="copyEmailBtn">Copy email</button>
                 </div>
 
@@ -58,8 +56,6 @@
               </div>
             </div>
           </div>
-
-          <!-- QUICK MESSAGE CARD -->
           <div class="col-6">
             <div class="card">
               <div class="card-pad">
@@ -67,8 +63,6 @@
                 <p>
                   This will open a pre-filled email draft in your default mail app.
                 </p>
-
-                <!-- Keep same visual style but avoid mailto form submits -->
                 <div class="form">
                   <input class="input" id="name" type="text" placeholder="Your name" />
                   <input class="input" id="fromEmail" type="email" placeholder="Your email" />
@@ -102,14 +96,10 @@
 
   <script>
     const MY_EMAIL = "ferro.t.dan@gmail.com";
-
-    // Set email button + displayed email text
     const emailBtn = document.getElementById("emailBtn");
     const emailText = document.getElementById("emailText");
     emailBtn.href = `mailto:${MY_EMAIL}`;
     emailText.textContent = MY_EMAIL;
-
-    // Copy email button
     const copyEmailBtn = document.getElementById("copyEmailBtn");
     copyEmailBtn.addEventListener("click", async () => {
       try {
@@ -117,12 +107,9 @@
         copyEmailBtn.textContent = "Copied!";
         setTimeout(() => (copyEmailBtn.textContent = "Copy email"), 1200);
       } catch (e) {
-        // Fallback: select text (best-effort)
         alert("Copy failed — please copy manually: " + MY_EMAIL);
       }
     });
-
-    // Build mailto draft from fields
     const draftBtn = document.getElementById("draftBtn");
     const clearBtn = document.getElementById("clearBtn");
 
@@ -144,17 +131,13 @@
       return `mailto:${MY_EMAIL}?subject=${subject}&body=${body}`;
     }
 
-    // Update draft link as user types
     ["name", "fromEmail", "message"].forEach((id) => {
       document.getElementById(id).addEventListener("input", () => {
         draftBtn.href = buildDraftLink();
       });
     });
 
-    // Initialize draft link
     draftBtn.href = buildDraftLink();
-
-    // Clear fields
     clearBtn.addEventListener("click", () => {
       document.getElementById("name").value = "";
       document.getElementById("fromEmail").value = "";
@@ -164,5 +147,6 @@
   </script>
 </body>
 </html>
+
 
 
