@@ -1,53 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dan Ferro | Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">Dan Ferro</div>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="brand-dot"></span>
+          <span>Dan Ferro</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container" style="max-width: 800px;">
+    <section class="section">
+      <div class="container">
+        <div class="hero">
+          <div class="card">
+            <div class="card-pad">
+              <div class="kicker">Web Software Development</div>
+              <h1>Building clean, practical websites with a focus on clarity and usability.</h1>
+              <p>
+                I’m a student developer who likes simple UI, readable layouts, and projects that solve real problems.
+                This site highlights what I’ve built so far and where I’m heading next.
+              </p>
 
-        <div class="hero-tag">WEB SOFTWARE DEVELOPMENT STUDENT</div>
+              <div class="meta">
+                <span class="chip">Based in Wisconsin</span>
+                <span class="chip">HTML • CSS • WordPress</span>
+                <span class="chip">Git/GitHub</span>
+              </div>
 
-        <h1 class="hero-title">Hi, I’m Dan. I enjoy building on my computer.</h1>
+              <div class="btn-row">
+                <a class="btn primary" href="projects.html">View Projects</a>
+                <a class="btn" href="contact.html">Contact Me</a>
+              </div>
+            </div>
+          </div>
 
-        <p class="hero-subtitle">
-          Front-end development student focused on creating responsive, user-friendly websites
-          with modern HTML and CSS.
-        </p>
+          <div class="hero-right">
+            <div class="card">
+              <div class="card-pad profile">
+                <div class="avatar">
+                  <img src="images/profile.jpg" alt="Portrait of Dan Ferro">
+                </div>
+                <p style="margin:0;">
+                  <strong style="color: var(--text);">Currently:</strong>
+                  Building portfolio projects + coursework at BTC.
+                </p>
+                <p style="margin:0;">
+                  <strong style="color: var(--text);">Seeking:</strong>
+                  Internship / entry-level web development.
+                </p>
+              </div>
+            </div>
 
-        <div class="btn-row" style="margin-top: 20px;">
-          <a href="projects.html" class="btn">View My Projects</a>
-          <a href="resume.html" class="btn btn-outline">View My Resume</a>
+            <div class="card">
+              <div class="card-pad">
+                <h3>Quick links</h3>
+                <p>Grab what you need fast.</p>
+                <div class="btn-row" style="margin-top: 10px;">
+                  <a class="btn" href="resume.html">Resume</a>
+                  <a class="btn" href="projects.html">Projects</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section compact">
+          <div class="kicker">Featured</div>
+          <h2>Projects worth clicking</h2>
+          <p>Short, scannable, and focused on outcomes.</p>
+
+          <div class="grid" style="margin-top: 16px;">
+            <div class="col-4">
+              <div class="card project">
+                <div class="card-pad">
+                  <div class="project-title">
+                    <h3>All Service Specialists</h3>
+                    <small>Website</small>
+                  </div>
+                  <p>A clean service business site with clear navigation and conversion-focused layout.</p>
+                  <div class="stack">
+                    <span class="chip">HTML</span>
+                    <span class="chip">CSS</span>
+                    <span class="chip">UX</span>
+                  </div>
+                </div>
+                <div class="card-pad" style="padding-top:0;">
+                  <a class="btn" href="projects.html">See details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="card project">
+                <div class="card-pad">
+                  <div class="project-title">
+                    <h3>Portfolio Site</h3>
+                    <small>Personal</small>
+                  </div>
+                  <p>Multi-page portfolio optimized for readability, spacing, and professional presentation.</p>
+                  <div class="stack">
+                    <span class="chip">HTML</span>
+                    <span class="chip">CSS</span>
+                    <span class="chip">Responsive</span>
+                  </div>
+                </div>
+                <div class="card-pad" style="padding-top:0;">
+                  <a class="btn" href="about.html">About me</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="card project">
+                <div class="card-pad">
+                  <div class="project-title">
+                    <h3>Next Project</h3>
+                    <small>In progress</small>
+                  </div>
+                  <p>Reserved slot for your next strongest project so the site always looks current.</p>
+                  <div class="stack">
+                    <span class="chip">Planned</span>
+                    <span class="chip">UI/UX</span>
+                  </div>
+                </div>
+                <div class="card-pad" style="padding-top:0;">
+                  <a class="btn" href="projects.html">Add it here</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      © 2025 · Dan Ferro
+      <div>© 2026 Dan Ferro • Built with HTML/CSS • Hosted on GitHub Pages</div>
     </div>
   </footer>
-
 </body>
 </html>
