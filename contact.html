@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Dan Ferro</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">Dan Ferro</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html" class="active">Contact</a>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="brand-dot"></span>
+          <span>Dan Ferro</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-section">
+    <section class="section">
       <div class="container">
-        <div class="page-header">
-          <h1>Contact</h1>
-          <p>Reach out if you’d like to connect, ask a question, or talk about a project.</p>
-        </div>
+        <div class="kicker">Contact</div>
+        <h1>Let’s talk.</h1>
+        <p>
+          The easiest way is email. If you want, fill this out and it will open your email app.
+        </p>
 
-        <div class="contact-layout">
-          <!-- Contact form (non-functional placeholder, just styled) -->
-          <form class="contact-card" action="#" method="post">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name">
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com">
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="How can I help?"></textarea>
-
-            <button type="submit" class="btn">Send Message</button>
-          </form>
-
-          <!-- Contact details -->
-          <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:ferro.t.dan@gmail.com">ferro.t.dan@gmail.com</a></p>
-            <p><strong>Location:</strong> Madison, WI</p>
-
-            <p style="margin-top: 12px;"><strong>GitHub</strong></p>
-            <div class="social-links">
-              <a href="https://github.com/ferrotdan" target="_blank">github.com/ferrotdan</a>
+        <div class="grid" style="margin-top: 18px;">
+          <div class="col-6">
+            <div class="card">
+              <div class="card-pad">
+                <h2>Email</h2>
+                <p>
+                  Replace the email below with your preferred contact email.
+                </p>
+                <div class="btn-row">
+                  <a class="btn primary" href="mailto:yourname@example.com">yourname@example.com</a>
+                </div>
+              </div>
             </div>
-            </p>
           </div>
+
+          <div class="col-6">
+            <div class="card">
+              <div class="card-pad">
+                <h2>Quick message</h2>
+
+                <!-- This uses a mailto action. Replace email address. -->
+                <form class="form" action="mailto:yourname@example.com" method="post" enctype="text/plain">
+                  <input class="input" type="text" name="name" placeholder="Your name" required />
+                  <input class="input" type="email" name="email" placeholder="Your email" required />
+                  <textarea class="input" name="message" placeholder="Your message" rows="5" required></textarea>
+                  <button class="btn primary" type="submit">Open Email Draft</button>
+                </form>
+
+                <p style="margin-top: 10px;">
+                  Tip: If you want a real form that submits without opening email, we can add Formspree or Google Forms.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      © 2025 · Dan Ferro
+      <div>© 2026 Dan Ferro</div>
     </div>
   </footer>
-
 </body>
 </html>
