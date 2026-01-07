@@ -223,7 +223,9 @@ main{
 .chip{
   display: inline-flex;
   align-items: center;
-  padding: 6px 10px;
+  justify-content: center;
+  min-height: 32px;                
+  padding: 8px 14px;                
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.06);
@@ -232,4 +234,5 @@ main{
   font-size: 0.86rem;
   line-height: 1;
   white-space: nowrap;
+  text-align: center;
 }
