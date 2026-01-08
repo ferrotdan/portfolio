@@ -20,7 +20,7 @@
           <a href="projects.html">Projects</a>
           <a href="about.html">About</a>
           <a href="resume.html">Resume</a>
-          <a href="contact.html">Contact</a>
+          <a href="contact.html" aria-current="page">Contact</a>
         </div>
       </nav>
     </div>
@@ -31,69 +31,65 @@
       <div class="container">
         <div class="kicker">Get In Touch</div>
         <h1>Contact</h1>
-        <p>
-          Email is the best way to reach me. Use the button below or send a quick message.
-        </p>
+        <p>Email is the best way to reach me. Use the button below or send a quick message.</p>
 
-        <div class="grid" style="margin-top: 18px;">
+        <div class="grid mt-18">
           <div class="col-6">
             <div class="card">
               <div class="card-pad">
                 <h2>Email</h2>
-                <p>
-                  For opportunities, questions, or project inquiries, feel free to contact me directly.
-                </p>
+                <p>For opportunities, questions, or project inquiries, you can reach me directly by email.</p>
 
-                <div class="btn-row" style="flex-wrap: wrap; gap: 10px;">
+                <div class="btn-row btn-row-tight">
                   <a class="btn primary" id="emailBtn" href="mailto:ferro.t.dan@gmail.com">Email me</a>
                   <a class="btn" id="gmailBtn" target="_blank" rel="noopener"
                      href="https://mail.google.com/mail/?view=cm&fs=1&to=ferro.t.dan@gmail.com">Compose email</a>
                   <button class="btn" type="button" id="copyEmailBtn">Copy email</button>
                 </div>
 
-                <p style="margin-top: 10px;">
+                <p class="contact-line">
                   <small>Email:</small>
-                  <code id="emailText" style="color: var(--text);">ferro.t.dan@gmail.com</code>
-                </p>
-                <p style="margin-top: 10px;">
-                  <small>Phone:</small>
-                  <code id="phoneText" style="color: var(--text);">262 389 8886</code>
+                  <code id="emailText">ferro.t.dan@gmail.com</code>
                 </p>
 
-                <div class="btn-row" style="margin-top: 6px; flex-wrap: wrap; gap: 10px;">
+                <p class="contact-line">
+                  <small>Phone:</small>
+                  <code id="phoneText">262 389 8886</code>
+                </p>
+
+                <div class="btn-row btn-row-tight">
                   <button class="btn" type="button" id="copyPhoneBtn">Copy phone</button>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="col-6">
             <div class="card">
               <div class="card-pad">
                 <h2>Quick message</h2>
-                <p>
-                  Send a quick message and I’ll get back to you.
-                </p>
+                <p>Send a quick message and I’ll get back to you.</p>
 
                 <form class="form" id="contactForm" action="https://formspree.io/f/xnjnebgj" method="POST">
-                  <input class="input" name="name" id="name" type="text" placeholder="Your name" required />
-                  <input class="input" name="email" id="fromEmail" type="email" placeholder="Your email" required />
-                  <textarea class="input" name="message" id="message" placeholder="Your message" rows="5" required></textarea>
+                  <div class="form-row">
+                    <input class="input" name="name" id="name" type="text" placeholder="Your name" required />
+                    <input class="input" name="email" id="fromEmail" type="email" placeholder="Your email" required />
+                    <textarea class="input" name="message" id="message" placeholder="Your message" rows="5" required></textarea>
+                  </div>
+
                   <input type="hidden" name="_subject" value="Portfolio inquiry" />
 
-                  <div class="btn-row" style="margin-top: 10px; flex-wrap: wrap; gap: 10px;">
+                  <div class="btn-row btn-row-tight">
                     <button class="btn primary" type="submit" id="sendBtn">Send message</button>
                     <button class="btn" type="button" id="clearBtn">Clear</button>
                   </div>
 
-                  <p id="formStatus" style="margin-top: 10px;"></p>
+                  <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
 
-                  <p style="margin-top: 10px;">
-                    <small style="color: var(--muted);">
-                      Prefer email? You can reach me directly using the Email me button.
-                    </small>
+                  <p class="form-hint">
+                    <small>Prefer email? You can reach me directly using the Email me button.</small>
                   </p>
                 </form>
-
               </div>
             </div>
           </div>
@@ -111,7 +107,7 @@
 
   <script>
     const MY_EMAIL = "ferro.t.dan@gmail.com";
-    const MY_PHONE = "2623898886"; // clean version for copying
+    const MY_PHONE = "2623898886";
 
     const emailBtn = document.getElementById("emailBtn");
     const gmailBtn = document.getElementById("gmailBtn");
@@ -159,18 +155,10 @@
     const sendBtn = document.getElementById("sendBtn");
 
     contactForm.addEventListener("submit", async (e) => {
-      const action = contactForm.getAttribute("action") || "";
-      if (action.includes("YOUR_FORMSPREE_ID")) {
-        e.preventDefault();
-        formStatus.style.color = "var(--muted)";
-        formStatus.textContent = "Setup needed: replace YOUR_FORMSPREE_ID in the form action (Formspree).";
-        return;
-      }
-
       e.preventDefault();
+
       sendBtn.disabled = true;
       sendBtn.textContent = "Sending…";
-      formStatus.style.color = "var(--muted)";
       formStatus.textContent = "";
 
       try {
@@ -182,15 +170,12 @@
         });
 
         if (res.ok) {
-          formStatus.style.color = "var(--text)";
           formStatus.textContent = "Message sent — I’ll get back to you soon.";
           contactForm.reset();
         } else {
-          formStatus.style.color = "var(--muted)";
           formStatus.textContent = "Something went wrong. Please use the Email button on the left.";
         }
       } catch (err) {
-        formStatus.style.color = "var(--muted)";
         formStatus.textContent = "Network issue. Please use the Email button on the left.";
       } finally {
         sendBtn.disabled = false;
@@ -200,8 +185,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
