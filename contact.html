@@ -29,35 +29,42 @@
   <main>
     <section class="section">
       <div class="container">
-        <div class="kicker">Get In Touch</div>
+        <div class="kicker">Get in touch</div>
         <h1>Contact</h1>
-        <p>Email is the best way to reach me. Use the button below or send a quick message.</p>
+        <p>Email is the best way to reach me. You can also send a quick message below.</p>
 
-        <div class="grid mt-18">
+        <div class="grid" style="margin-top: 18px;">
           <div class="col-6">
             <div class="card">
               <div class="card-pad">
                 <h2>Email</h2>
-                <p>For opportunities, questions, or project inquiries, you can reach me directly by email.</p>
+                <p>If you’d like to talk about a project, opportunity, or have a question, feel free to reach out.</p>
 
-                <div class="btn-row btn-row-tight">
+                <div class="btn-row">
                   <a class="btn primary" id="emailBtn" href="mailto:ferro.t.dan@gmail.com">Email me</a>
-                  <a class="btn" id="gmailBtn" target="_blank" rel="noopener"
-                     href="https://mail.google.com/mail/?view=cm&fs=1&to=ferro.t.dan@gmail.com">Compose email</a>
+                  <a
+                    class="btn"
+                    id="gmailBtn"
+                    target="_blank"
+                    rel="noopener"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=ferro.t.dan@gmail.com"
+                  >
+                    Open in Gmail
+                  </a>
                   <button class="btn" type="button" id="copyEmailBtn">Copy email</button>
                 </div>
 
-                <p class="contact-line">
+                <p style="margin-top: 12px;">
                   <small>Email:</small>
                   <code id="emailText">ferro.t.dan@gmail.com</code>
                 </p>
 
-                <p class="contact-line">
+                <p style="margin-top: 8px;">
                   <small>Phone:</small>
                   <code id="phoneText">262 389 8886</code>
                 </p>
 
-                <div class="btn-row btn-row-tight">
+                <div class="btn-row" style="margin-top: 8px;">
                   <button class="btn" type="button" id="copyPhoneBtn">Copy phone</button>
                 </div>
               </div>
@@ -68,33 +75,51 @@
             <div class="card">
               <div class="card-pad">
                 <h2>Quick message</h2>
-                <p>Send a quick message and I’ll get back to you.</p>
+                <p>Send a short message and I’ll get back to you.</p>
 
-                <form class="form" id="contactForm" action="https://formspree.io/f/xnjnebgj" method="POST">
+                <form id="contactForm" action="https://formspree.io/f/xnjnebgj" method="POST">
                   <div class="form-row">
-                    <input class="input" name="name" id="name" type="text" placeholder="Your name" required />
-                    <input class="input" name="email" id="fromEmail" type="email" placeholder="Your email" required />
-                    <textarea class="input" name="message" id="message" placeholder="Your message" rows="5" required></textarea>
+                    <input
+                      name="name"
+                      id="name"
+                      type="text"
+                      placeholder="Your name"
+                      required
+                    />
+                    <input
+                      name="email"
+                      id="fromEmail"
+                      type="email"
+                      placeholder="Your email"
+                      required
+                    />
+                    <textarea
+                      name="message"
+                      id="message"
+                      placeholder="Your message"
+                      required
+                    ></textarea>
                   </div>
 
                   <input type="hidden" name="_subject" value="Portfolio inquiry" />
 
-                  <div class="btn-row btn-row-tight">
+                  <div class="btn-row" style="margin-top: 12px;">
                     <button class="btn primary" type="submit" id="sendBtn">Send message</button>
                     <button class="btn" type="button" id="clearBtn">Clear</button>
                   </div>
 
-                  <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+                  <p id="formStatus" style="margin-top: 10px;" aria-live="polite"></p>
 
-                  <p class="form-hint">
-                    <small>Prefer email? You can reach me directly using the Email me button.</small>
+                  <p style="margin-top: 8px;">
+                    <small style="color: var(--muted);">
+                      Prefer email? You can reach me directly using the Email me button.
+                    </small>
                   </p>
                 </form>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   </main>
@@ -109,45 +134,34 @@
     const MY_EMAIL = "ferro.t.dan@gmail.com";
     const MY_PHONE = "2623898886";
 
-    const emailBtn = document.getElementById("emailBtn");
-    const gmailBtn = document.getElementById("gmailBtn");
-    const emailText = document.getElementById("emailText");
-    const phoneText = document.getElementById("phoneText");
+    document.getElementById("emailText").textContent = MY_EMAIL;
+    document.getElementById("phoneText").textContent = "262 389 8886";
 
-    emailBtn.href = `mailto:${MY_EMAIL}`;
-    gmailBtn.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(MY_EMAIL)}`;
-    emailText.textContent = MY_EMAIL;
-    phoneText.textContent = "262 389 8886";
-
-    const copyEmailBtn = document.getElementById("copyEmailBtn");
-    copyEmailBtn.addEventListener("click", async () => {
+    document.getElementById("copyEmailBtn").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(MY_EMAIL);
-        copyEmailBtn.textContent = "Copied!";
-        setTimeout(() => (copyEmailBtn.textContent = "Copy email"), 1200);
-      } catch (e) {
-        alert("Copy failed — please copy manually: " + MY_EMAIL);
+        const btn = event.target;
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = "Copy email"), 1200);
+      } catch {
+        alert("Copy failed. Please copy manually.");
       }
     });
 
-    const copyPhoneBtn = document.getElementById("copyPhoneBtn");
-    copyPhoneBtn.addEventListener("click", async () => {
+    document.getElementById("copyPhoneBtn").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(MY_PHONE);
-        copyPhoneBtn.textContent = "Copied!";
-        setTimeout(() => (copyPhoneBtn.textContent = "Copy phone"), 1200);
-      } catch (e) {
-        alert("Copy failed — please copy manually: 262 389 8886");
+        const btn = event.target;
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = "Copy phone"), 1200);
+      } catch {
+        alert("Copy failed. Please copy manually.");
       }
     });
 
-    const clearBtn = document.getElementById("clearBtn");
-    clearBtn.addEventListener("click", () => {
-      document.getElementById("name").value = "";
-      document.getElementById("fromEmail").value = "";
-      document.getElementById("message").value = "";
-      const status = document.getElementById("formStatus");
-      status.textContent = "";
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      document.getElementById("contactForm").reset();
+      document.getElementById("formStatus").textContent = "";
     });
 
     const contactForm = document.getElementById("contactForm");
@@ -156,27 +170,25 @@
 
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-
       sendBtn.disabled = true;
       sendBtn.textContent = "Sending…";
       formStatus.textContent = "";
 
       try {
-        const formData = new FormData(contactForm);
         const res = await fetch(contactForm.action, {
           method: "POST",
-          body: formData,
-          headers: { "Accept": "application/json" }
+          body: new FormData(contactForm),
+          headers: { Accept: "application/json" }
         });
 
         if (res.ok) {
           formStatus.textContent = "Message sent — I’ll get back to you soon.";
           contactForm.reset();
         } else {
-          formStatus.textContent = "Something went wrong. Please use the Email button on the left.";
+          formStatus.textContent = "Something went wrong. Please use email instead.";
         }
-      } catch (err) {
-        formStatus.textContent = "Network issue. Please use the Email button on the left.";
+      } catch {
+        formStatus.textContent = "Network error. Please use email instead.";
       } finally {
         sendBtn.disabled = false;
         sendBtn.textContent = "Send message";
