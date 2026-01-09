@@ -237,7 +237,7 @@ main{ padding-top: 18px; }
   flex-direction: column;
 }
 
-.grid > * > .card > .card-pad:last-child{
+.grid > * > .card > .card-pad + .card-pad{
   margin-top: auto;
 }
 
@@ -325,3 +325,4 @@ main{ padding-top: 18px; }
   .chip{ white-space: normal; }
   .nav-links{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
