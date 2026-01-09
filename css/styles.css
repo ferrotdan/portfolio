@@ -222,7 +222,6 @@ main{ padding-top: 18px; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
-
   align-items: stretch;
 }
 
@@ -239,6 +238,18 @@ main{ padding-top: 18px; }
 
 .grid > * > .card > .card-pad + .card-pad{
   margin-top: auto;
+}
+
+.project-shots{
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.project-shots img{
+  width: min(240px, 48%);
+  border-radius: 12px;
 }
 
 .col-6{ min-width: 0; }
@@ -325,4 +336,3 @@ main{ padding-top: 18px; }
   .chip{ white-space: normal; }
   .nav-links{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-
