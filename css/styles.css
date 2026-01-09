@@ -222,6 +222,23 @@ main{ padding-top: 18px; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+
+  align-items: stretch;
+}
+
+.grid > *{
+  display: flex;
+  min-width: 0;
+}
+
+.grid > * > .card{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid > * > .card > .card-pad:last-child{
+  margin-top: auto;
 }
 
 .col-6{ min-width: 0; }
