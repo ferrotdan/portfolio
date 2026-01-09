@@ -221,23 +221,27 @@ main{ padding-top: 18px; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+}
+
+.projects-grid{
   align-items: stretch;
 }
 
-.grid > *{
+.projects-grid > *{
   display: flex;
   min-width: 0;
 }
 
-.grid > * > .card{
+.projects-grid > * > .card{
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.grid > * > .card > .card-pad + .card-pad{
+.projects-grid > * > .card > .card-pad + .card-pad{
   margin-top: auto;
 }
+
 
 .card.project > img{
   width: 100%;
@@ -336,3 +340,4 @@ main{ padding-top: 18px; }
   .chip{ white-space: normal; }
   .nav-links{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
