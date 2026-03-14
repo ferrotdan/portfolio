@@ -8,23 +8,37 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav">
-        <a class="brand" href="index.html">
-          <span class="brand-dot"></span>
-          <span>Dan Ferro</span>
-        </a>
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="projects.html">Projects</a>
-          <a href="about.html">About</a>
-          <a href="resume.html">Resume</a>
-          <a href="contact.html" aria-current="page">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        <span>Dan Ferro</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-links"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
   <main>
     <section class="section">
@@ -233,5 +247,6 @@
       }
     });
   </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

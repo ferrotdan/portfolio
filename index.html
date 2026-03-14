@@ -16,7 +16,20 @@
           <span>Dan Ferro</span>
         </a>
 
-        <div class="nav-links">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
           <a href="index.html">Home</a>
           <a href="projects.html">Projects</a>
           <a href="about.html">About</a>
@@ -47,6 +60,7 @@
 
               <div class="btn-row">
                 <a class="btn primary" href="projects.html">View Projects</a>
+                <a class="btn" href="https://github.com/ferrotdan" target="_blank">GitHub</a>
               </div>
             </div>
           </div>
@@ -137,14 +151,7 @@
       <div>© 2026 Dan Ferro</div>
     </div>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
